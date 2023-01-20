@@ -1,0 +1,106 @@
+body {
+  background-color: rgb(243 244 246);
+}
+
+.upload-page {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
+.upload-container {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  position: relative;
+}
+
+.back-green-card {
+  border-radius: 1.5rem;
+  transform: translate(0, 0) rotate(-6deg) skewX(0) skewY(0deg) scaleX(1) scaleY(1);
+  background-image: linear-gradient(to right, #4ade80, #22c55e);
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.content-card {
+  padding: 5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  background: white;
+  opacity: 1;
+  position: relative;
+}
+
+.content-card .content {
+  max-width: 28rem;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.content-label {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.content-drop {
+  border-style: dashed;
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+}
+.navbar-menu .nav-link:hover,
+.navbar-menu .nav-link.active {
+  color: #4ade80;
+  border-color:#4ade80;
+}
+.dropzone .dz-preview {
+  height: 100px;
+  width: 170px;
+}
+.vue-dropzone>.dz-preview .dz-error-message {
+  top: 100px !important;
+}
+
+.vue-dropzone>.dz-preview .dz-error-mark, .vue-dropzone>.dz-preview .dz-success-mark {
+  margin-left: none !important;
+  margin-top: none !important;
+  top: 10% !important;
+  left: 50px !important;
+}
+
+@media (min-width: 640px) {
+  .upload-page {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .upload-container {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    justify-content: space-between;
+  }
+
+  .navbar-menu {
+    margin-left: 120px;
+  }
+  .navbar-menu .nav-link {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-left: 20px !important;
+  }
+}
