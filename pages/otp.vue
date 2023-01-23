@@ -87,15 +87,22 @@
 </template>
 
 <script>
-  import VueRecaptcha from 'vue-recaptcha';
+  import VueRecaptcha from 'vue-recaptcha'
   export default {
     data () {
       return {
         isLoading: false,
         otp: [],
-        sitekey: process.env.CAPTCHA_SITEKEY,
         isVerified: false,
       }
+    },
+    computed: {
+      email() {
+        return this.$store.state.login.email
+      },
+      password() {
+        return this.$store.state.login.password
+      },
     },
     layout: 'blank',
     components: {
@@ -135,16 +142,18 @@
         this.isLoading = true
 
         //Append Data
-
+        const data = {
+          email: this.email,
+          password: this.password,
+          otp: this.otp.join(""),
+        }
 
         this.$auth.loginWith('local', {
-          data: this.data
+          data
         }).then(() => {
           this.$router.push('/')
         }).catch((error) => {
           this.makeToast('error', error.response)
-          this.$refs.recaptcha.reset()
-          this.data.recaptcha = ''
           this.isVerified = false
           this.isLoading = false
         })

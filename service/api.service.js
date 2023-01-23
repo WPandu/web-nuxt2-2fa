@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-function Api(config) {
+function BaseApi(config) {
   const obj = {}
 
   obj.init = function () {
@@ -127,12 +127,12 @@ function Api(config) {
   return obj
 }
 
-export const ApiGeneral = new Api({
+export const Api = new BaseApi({
   baseUrl: process.env.API_URL
 })
 
 export const ApiService = {
   init() {
-    ApiGeneral.init()
+    Api.init()
   }
 }

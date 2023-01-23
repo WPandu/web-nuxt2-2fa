@@ -108,7 +108,9 @@
           this.$router.push('/')
         }).catch((error) => {
           if (error.response.data.error_code === 'NEED_OTP') {
-            this.$router.push('/otp');
+            this.$store.commit('login/setEmail', this.data.email)
+            this.$store.commit('login/setPassword', this.data.password)
+            this.$router.push('/otp')
             return
           }
 
