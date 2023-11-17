@@ -8,7 +8,7 @@
             <span class="content-label">Please scan the QR code below.</span>
           </div>
           <div class="text-center">
-            <img v-if="data.qr_code" class="d-block" :src="`data:image/png;base64,${data.qr_code}`" />
+            <img v-if="data.qr_code" class="d-block" :src="`${data.qr_code}`" />
             <button class="btn btn-primary" @click="submitAuthenticator">Submit</button>
           </div>
         </div>
@@ -33,8 +33,9 @@ export default {
 
       vm.data = []
       vm.isLoading = true
-      AuthSvc.getBarcodeGoogle().then((res) => {
+      AuthSvc.getQRCode().then((res) => {
         vm.data = res.data.data
+        console.log(vm.data)
       }).catch((err) => {
         vm.makeToast("error", err)
       }).then(() => {
@@ -45,8 +46,8 @@ export default {
       let vm = this
 
       vm.isLoading = true
-      AuthSvc.registerBarcodeGoogle({
-        google2fa_secret: this.data.secret_key
+      AuthSvc.registerQRCode({
+        google_2fa_secret: this.data.secret_key
       }).then(() => {
         vm.makeToast("success", "Success register 2FA google")
       }).catch((err) => {

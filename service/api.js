@@ -1,10 +1,10 @@
 import { Api } from '@/service/api.service'
 
 export const AuthSvc = {
-  getBarcodeGoogle() {
-    return Api.get('auth/google-barcode')
+  getQRCode() {
+    return Api.get('auth/2fa-qr-code')
   },
-  registerBarcodeGoogle(params) {
-    return Api.post('auth/google-barcode', params)
+  registerQRCode(params) {
+    return Api.post('auth/2fa-qr-code', params)
   },
 }
